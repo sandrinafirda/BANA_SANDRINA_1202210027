@@ -3,6 +3,11 @@
 // **********************  1  ************************** 
 // ========== tangkap nilai tinggi_badan dan berat_badan yang ada pada form html
 // silakan taruh code kalian di bawah
+if(isset($_POST['BMI'])){
+$tinggi_badan =$_POST['tinggi_badan'];
+$berat_badan =$_POST['berat_badan'];
+
+}
 
 // **********************  1  ************************** 
 
@@ -11,7 +16,9 @@
 // ========== buatkan sebuah perkondisian di mana 
 // tinggi_badan atau $berat_badan tidak boleh kosong nilainya, kalau kosong buatkanlah pesan error
 // silakan taruh code kalian di bawah
-
+if ($tinggi_badan = "" || $berat_badan  = "" || $tinggi_badan = 0 || $berat_badan = 0);{
+echo 'Tinggi badan dan berat badan tidak boleh kosong';
+}
 
 // **********************  2  ************************** 
 
@@ -20,12 +27,20 @@
 // ========== buatkanlah perkondisian di mana Jika kesalahan Error-nya "empty", 
 // masukkan perhitungan BMI sesuai dengan rumus yang tertera pada jurnal
 // silakan taruh code kalian di bawah
+if($hasil = $berat_badan / $tinggi_badan**2){
 
+    if ($hasil <= 18.4){
+        echo 'underweight';
+    } else if ($hasil >= 18.5 || $hasil <=24.9){
+        echo 'normal';
+    } else if ($hasil >= 25.0 || $hasil <=39.9){
+        echo 'overweight';
+    } else if ($hasil >= 40.0){
+        echo 'obese';
+    }
+}
 
 // **********************  3  ************************** 
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +65,7 @@
                     <form action="" method="POST">
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control" name="tinggi_badan" id="tinggi_badan" placeholder="175">
-                            <label for="tinggi_badan">Tinggi Badan (CM)</label>
+                            <label for="tinggi_badan">Tinggi Badan (M)</label>
                         </div>
                         <div class="form-floating">
                             <input type="number" class="form-control" name="berat_badan" id="berat_badan" placeholder="53">
@@ -62,8 +77,7 @@
                     <!--  **********************  4  **************************     -->
                     <!-- Hasilnya perhitungan BMI taruh di sini yaaa!! 😊 -->
                     <!-- silakan taruh code kalian di bawah -->
-                    
-                    
+                  
                     <!--  **********************  4  **************************     -->
 
 
